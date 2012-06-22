@@ -36,7 +36,7 @@ HOSTNAME=`hostname`
 HOSTS_ADDR=`grep "${HOSTNAME}" /etc/hosts | grep -o "[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*" | uniq`
 
 # Retrieve current IP as set on the device
-CURRENT_ADDR=`ip addr show ${DEVICE} | grep -o "inet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]*" | grep -o "[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*"`
+CURRENT_ADDR=`/sbin/ip addr show ${DEVICE} | grep -o "inet [0-9]*\.[0-9]*\.[0-9]*\.[0-9]*" | grep -o "[0-9]*\.[0-9]*\.[0-9]*\.[0-9]*"`
 
 # Exit if the ip in /etc/hosts and the one in use on eth0 match,
 # nothing to do.
