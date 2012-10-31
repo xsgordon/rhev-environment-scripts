@@ -19,7 +19,7 @@ INSTANCE_DSK=20
 NAME="rhevm"
 MAC="00:16:3e:77:e2:ed"
 
-EXISTING=`virsh list --all --name | grep rhevm31`
+EXISTING=`virsh list --all --name | grep ${NAME}`
 
 if [ ! -z "${EXISTING}" ]; then
   echo "ERROR: Virtual machine '${NAME}' already exists, please remove it and try again."
