@@ -26,12 +26,24 @@ if [ ! -z "${EXISTING}" ]; then
   exit 1
 fi
 
+# Find a virtual bridge name that is not in use.
+BRIDGE=""
+for N in {1..99}; do
+	ip addr show virbr${N} &> /dev/null
+	RESULT=$?
+	if [ $RESULT -eq 0 ]; then
+		continue
+	else BRIDGE="virbr${N}"
+		break
+	fi
+done
+
 # Define network example.com with only one IP available, which will be assigned to
 # ${NAME}.example.com. This network config is what provides for the rhevm server
 # having valid forward and reverse lookups.
 echo "<network>
   <name>example</name>
-  <bridge name='virbr10' />
+  <bridge name='${BRIDGE}' />
   <forward mode='nat' />
   <domain name='example.com' />
   <dns>
