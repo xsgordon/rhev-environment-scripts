@@ -17,7 +17,7 @@ INSTANCE_DSK=20
 
 # Name of the instance, this will be used for the hostname as well as the name of the VM.
 NAME="rhevm"
-MAC="00:16:3e:77:e2:ed"
+MAC=`echo -n 52:54:00; dd bs=1 count=3 if=/dev/random 2> /dev/null | hexdump -v -e '/1 ":%02X"'`
 
 EXISTING=`virsh list --all --name | grep ${NAME}`
 
