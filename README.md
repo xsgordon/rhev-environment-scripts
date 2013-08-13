@@ -44,3 +44,7 @@ Usage is currently `sh ip-sync.sh`, no arguments are parsed from command line.
 Instead user configurable values must be set for the host that ip-sync is 
 deployed on in the header of the script itself.
 
+rhev-ks.sh
+==========
+
+Kickstart a RHEV-M installation inside a virtual machine on the local KVM host. Useful for quickly testing new builds. To use, edit the script and insert your local enterprise linux, oVirt/RHEV, and JBoss repositories.
