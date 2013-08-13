@@ -3,6 +3,13 @@ rhev-environment-scripts
 
 Collection of scripts for working with a minimal RHEV or oVirt environment.
 
+add-user.py
+===========
+
+Given a UPN, add the user to the RHEV environment (if it hasn't already been added). The operation assumes that RHEV has already been attached to the relevant domain.
+
+    $ python add-user.py <user@domain>
+
 ip-sync.sh
 ==========
 
